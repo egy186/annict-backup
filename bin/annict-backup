@@ -1,0 +1,39 @@
+#!/usr/bin/env node
+
+'use strict';
+
+const annictBackup = require('../lib');
+const fs = require('fs');
+const mkdirp = require('mkdirp');
+const path = require('path');
+const program = require('commander');
+const winston = require('winston');
+const { version } = require('../package.json');
+
+program
+  .version(version)
+  .usage('[options] <output file path>')
+  .option('-f, --force', 'force overwrite')
+  .option('-l, --log-level [level]', 'defaults to info')
+  .option('-p, --pretty', 'pretty JSON output')
+  .option('-t, --token [token]', 'personal access token')
+  .parse(process.argv);
+
+winston.level = program.logLevel || 'info';
+
+const flag = program.force ? 'w' : 'wx';
+const stringify = arg => JSON.stringify(arg, null, program.pretty ? '  ' : '');
+const [outFile] = program.args;
+const outDir = path.dirname(outFile);
+
+(async () => {
+  try {
+    const works = await annictBackup(program.token);
+    const backup = stringify(works);
+    mkdirp.sync(outDir);
+    fs.writeFileSync(outFile, backup, { flag });
+  } catch (err) {
+    winston.error(err);
+    process.exitCode = 1;
+  }
+})();

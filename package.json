@@ -1,0 +1,48 @@
+{
+  "name": "annict-backup",
+  "description": "backup annict data",
+  "version": "0.1.0",
+  "author": "egy186",
+  "bin": {
+    "annict-backup": "bin/annict-backup"
+  },
+  "bugs": {
+    "url": "https://github.com/egy186/annict-backup/issues"
+  },
+  "dependencies": {
+    "annict": "0.0.8",
+    "bluebird": "^3.5.1",
+    "commander": "^2.14.1",
+    "cosmiconfig": "^4.0.0",
+    "lodash": "^4.17.5",
+    "mkdirp": "^0.5.1",
+    "winston": "^2.4.0"
+  },
+  "devDependencies": {
+    "@egy186/eslint-config": "^0.30.0",
+    "eslint": "^4.17.0",
+    "husky": "^0.14.3"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "lib",
+    "bin"
+  ],
+  "homepage": "https://github.com/egy186/annict-backup#readme",
+  "keywords": [
+    "annict",
+    "backup"
+  ],
+  "license": "MIT",
+  "main": "lib",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/egy186/annict-backup.git"
+  },
+  "scripts": {
+    "lint": "eslint . bin/*",
+    "precommit": "npm run lint"
+  }
+}
