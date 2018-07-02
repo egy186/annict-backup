@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "author": "egy186",
   "bin": {
-    "annict-backup": "bin/annict-backup"
+    "annict-backup": "bin/annict-backup.js"
   },
   "bugs": {
     "url": "https://github.com/egy186/annict-backup/issues"
@@ -17,8 +17,8 @@
     "winston": "^2.4.0"
   },
   "devDependencies": {
-    "@egy186/eslint-config": "^0.30.0",
-    "eslint": "^4.17.0",
+    "@egy186/eslint-config": "^0.34.0",
+    "eslint": "^5.0.1",
     "husky": "^0.14.3"
   },
   "engines": {
@@ -40,7 +40,7 @@
     "url": "git+https://github.com/egy186/annict-backup.git"
   },
   "scripts": {
-    "lint": "eslint . bin/*",
+    "lint": "eslint .",
     "precommit": "npm run lint"
   }
 }
