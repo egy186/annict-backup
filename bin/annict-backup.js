@@ -7,7 +7,7 @@ const fs = require('fs');
 const mkdirp = require('mkdirp');
 const path = require('path');
 const program = require('commander');
-const winston = require('winston');
+const logger = require('../lib/logger');
 const { name, version } = require('../package.json');
 
 const getYyyyMmDd = () => {
@@ -30,7 +30,7 @@ program
   .option('-t, --token [token]', 'personal access token')
   .parse(process.argv);
 
-winston.level = program.logLevel || 'info';
+logger.level = program.logLevel || 'info';
 
 const flag = program.force ? 'w' : 'wx';
 const stringify = arg => JSON.stringify(arg, null, program.pretty ? '  ' : '');
@@ -44,7 +44,7 @@ const outDir = path.dirname(outFile);
     mkdirp.sync(outDir);
     fs.writeFileSync(outFile, backup, { flag });
   } catch (err) {
-    winston.error(err);
+    logger.error(err);
     process.exitCode = 1;
   }
 })();
