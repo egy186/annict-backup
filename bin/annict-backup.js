@@ -3,22 +3,13 @@
 'use strict';
 
 const annictBackup = require('../lib');
+const format = require('date-fns/format');
 const fs = require('fs');
+const logger = require('../lib/logger');
 const mkdirp = require('mkdirp');
 const path = require('path');
 const program = require('commander');
-const logger = require('../lib/logger');
 const { name, version } = require('../package.json');
-
-const getYyyyMmDd = () => {
-  const fillZero = num => num.toString().padStart(2, '0');
-  const now = new Date();
-  return [
-    now.getFullYear(),
-    fillZero(now.getMonth() + 1),
-    fillZero(now.getDate())
-  ].join('-');
-};
 
 program
   .version(version)
@@ -34,7 +25,7 @@ logger.level = program.logLevel || 'info';
 
 const flag = program.force ? 'w' : 'wx';
 const stringify = arg => JSON.stringify(arg, null, program.pretty ? '  ' : '');
-const outFile = program.out || `${name}-${getYyyyMmDd()}.json`;
+const outFile = program.out || `${name}-${format(new Date(), 'YYYY-MM-DD')}.json`;
 const outDir = path.dirname(outFile);
 
 (async () => {
