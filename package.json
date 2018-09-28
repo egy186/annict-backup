@@ -41,7 +41,6 @@
     "url": "git+https://github.com/egy186/annict-backup.git"
   },
   "scripts": {
-    "lint": "eslint .",
-    "precommit": "npm run lint"
+    "lint": "eslint ."
   }
 }
