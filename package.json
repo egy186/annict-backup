@@ -10,7 +10,7 @@
     "url": "https://github.com/egy186/annict-backup/issues"
   },
   "dependencies": {
-    "annict": "0.0.8",
+    "annict": "0.0.9",
     "commander": "^2.14.1",
     "cosmiconfig": "^5.0.5",
     "date-fns": "^1.29.0",
