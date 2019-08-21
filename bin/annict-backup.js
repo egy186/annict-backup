@@ -25,7 +25,7 @@ logger.level = program.logLevel || 'info';
 
 const flag = program.force ? 'w' : 'wx';
 const stringify = arg => JSON.stringify(arg, null, program.pretty ? '  ' : '');
-const outFile = program.out || `${name}-${format(new Date(), 'YYYY-MM-DD')}.json`;
+const outFile = program.out || `${name}-${format(new Date(), 'yyyy-MM-dd')}.json`;
 const outDir = path.dirname(outFile);
 
 (async () => {
