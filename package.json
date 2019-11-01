@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "annict": "0.0.9",
-    "commander": "^3.0.0",
+    "commander": "^4.0.0",
     "cosmiconfig": "^5.0.5",
     "date-fns": "^2.0.0",
     "mkdirp": "^0.5.1",
