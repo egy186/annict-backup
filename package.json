@@ -12,7 +12,7 @@
   "dependencies": {
     "annict": "0.0.9",
     "commander": "^4.0.0",
-    "cosmiconfig": "^5.0.5",
+    "cosmiconfig": "^6.0.0",
     "date-fns": "^2.0.0",
     "mkdirp": "^0.5.1",
     "winston": "^3.0.0"
