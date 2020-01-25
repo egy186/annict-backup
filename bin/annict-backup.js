@@ -4,9 +4,8 @@
 
 const annictBackup = require('../lib');
 const format = require('date-fns/format');
-const fs = require('fs');
+const { promises: fs } = require('fs');
 const logger = require('../lib/logger');
-const mkdirp = require('mkdirp');
 const path = require('path');
 const program = require('commander');
 const { name, version } = require('../package.json');
@@ -32,8 +31,8 @@ const outDir = path.dirname(outFile);
   try {
     const works = await annictBackup(program.token);
     const backup = stringify(works);
-    mkdirp.sync(outDir);
-    fs.writeFileSync(outFile, backup, { flag });
+    await fs.mkdir(outDir, { recursive: true });
+    await fs.writeFile(outFile, backup, { flag });
   } catch (err) {
     logger.error(err);
     process.exitCode = 1;
