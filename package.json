@@ -13,13 +13,13 @@
     "annict": "0.0.9",
     "commander": "^5.0.0",
     "cosmiconfig": "^6.0.0",
-    "date-fns": "^2.0.0",
-    "winston": "^3.0.0"
+    "date-fns": "^2.11.1",
+    "winston": "^3.2.1"
   },
   "devDependencies": {
     "@egy186/eslint-config": "^0.43.0",
-    "eslint": "^6.7.0",
-    "husky": "^4.0.0"
+    "eslint": "^6.8.0",
+    "husky": "^4.2.3"
   },
   "engines": {
     "node": ">=12.14.1"

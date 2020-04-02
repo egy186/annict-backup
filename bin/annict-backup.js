@@ -3,7 +3,7 @@
 'use strict';
 
 const annictBackup = require('../lib');
-const format = require('date-fns/format');
+const { formatISO } = require('date-fns');
 const { promises: fs } = require('fs');
 const logger = require('../lib/logger');
 const path = require('path');
@@ -24,7 +24,7 @@ logger.level = program.logLevel || 'info';
 
 const flag = program.force ? 'w' : 'wx';
 const stringify = arg => JSON.stringify(arg, null, program.pretty ? '  ' : '');
-const outFile = program.out || `${name}-${format(new Date(), 'yyyy-MM-dd')}.json`;
+const outFile = program.out || `${name}-${formatISO(new Date(), { representation: 'date' })}.json`;
 const outDir = path.dirname(outFile);
 
 (async () => {
