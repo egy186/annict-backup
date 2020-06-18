@@ -18,7 +18,9 @@
   },
   "devDependencies": {
     "@egy186/eslint-config": "^0.44.0",
-    "eslint": "^7.0.0",
+    "eslint": "^7.2.0",
+    "eslint-plugin-jsdoc": "^27.1.2",
+    "eslint-plugin-node": "^11.1.0",
     "husky": "^4.2.3"
   },
   "engines": {
