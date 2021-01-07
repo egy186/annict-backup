@@ -17,9 +17,9 @@
     "winston": "^3.2.1"
   },
   "devDependencies": {
-    "@egy186/eslint-config": "^0.54.0",
-    "eslint": "^7.15.0",
-    "eslint-plugin-jsdoc": "^30.7.8",
+    "@egy186/eslint-config": "^0.56.0",
+    "eslint": "^7.17.0",
+    "eslint-plugin-jsdoc": "^30.7.13",
     "eslint-plugin-node": "^11.1.0",
     "husky": "^4.2.3"
   },
