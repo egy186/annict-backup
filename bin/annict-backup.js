@@ -20,16 +20,18 @@ program
   .option('-t, --token [token]', 'personal access token')
   .parse(process.argv);
 
-logger.level = program.logLevel || 'info';
+const options = program.opts();
 
-const flag = program.force ? 'w' : 'wx';
-const stringify = arg => JSON.stringify(arg, null, program.pretty ? '  ' : '');
-const outFile = program.out || `${name}-${formatISO(new Date(), { representation: 'date' })}.json`;
+logger.level = options.logLevel || 'info';
+
+const flag = options.force ? 'w' : 'wx';
+const stringify = arg => JSON.stringify(arg, null, options.pretty ? '  ' : '');
+const outFile = options.out || `${name}-${formatISO(new Date(), { representation: 'date' })}.json`;
 const outDir = path.dirname(outFile);
 
 (async () => {
   try {
-    const works = await annictBackup(program.token);
+    const works = await annictBackup(options.token);
     const backup = stringify(works);
     await fs.mkdir(outDir, { recursive: true });
     await fs.writeFile(outFile, backup, { flag });
