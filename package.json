@@ -21,7 +21,7 @@
     "eslint": "^7.21.0",
     "eslint-plugin-jsdoc": "^32.2.0",
     "eslint-plugin-node": "^11.1.0",
-    "husky": "^4.2.3"
+    "husky": "^6.0.0"
   },
   "engines": {
     "node": ">=12.14.1"
