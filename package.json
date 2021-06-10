@@ -11,17 +11,16 @@
   },
   "dependencies": {
     "annict": "0.0.9",
-    "commander": "^7.0.0",
+    "commander": "^7.2.0",
     "cosmiconfig": "^7.0.0",
-    "date-fns": "^2.11.1",
-    "winston": "^3.2.1"
+    "date-fns": "^2.22.1",
+    "winston": "^3.3.3"
   },
   "devDependencies": {
-    "@egy186/eslint-config": "^0.58.0",
-    "eslint": "^7.21.0",
-    "eslint-plugin-jsdoc": "^32.2.0",
+    "@egy186/eslint-config": "^0.61.0",
+    "eslint": "^7.28.0",
     "eslint-plugin-node": "^11.1.0",
-    "husky": "^4.2.3"
+    "husky": "^6.0.0"
   },
   "engines": {
     "node": ">=12.14.1"
@@ -42,6 +41,7 @@
     "url": "git+https://github.com/egy186/annict-backup.git"
   },
   "scripts": {
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "postinstall": "husky install"
   }
 }
