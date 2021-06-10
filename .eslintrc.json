@@ -2,5 +2,8 @@
   "extends": [
     "@egy186/eslint-config",
     "@egy186/eslint-config/node"
-  ]
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2020
+  }
 }
