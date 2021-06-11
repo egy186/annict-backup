@@ -1,7 +1,7 @@
 {
   "name": "annict-backup",
   "description": "backup annict data",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "egy186",
   "bin": {
     "annict-backup": "bin/annict-backup.js"
