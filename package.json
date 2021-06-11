@@ -41,7 +41,7 @@
     "url": "git+https://github.com/egy186/annict-backup.git"
   },
   "scripts": {
-    "lint": "eslint .",
-    "postinstall": "husky install"
+    "husky": "husky install",
+    "lint": "eslint ."
   }
 }
