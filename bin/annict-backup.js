@@ -1,38 +1,35 @@
 #!/usr/bin/env node
 
+import { Command } from 'commander/esm.mjs';
 import { annictBackup } from '../lib/index.js';
-import { formatISO } from 'date-fns';
 import fs from 'node:fs/promises';
 import { logger } from '../lib/logger.js';
 import path from 'node:path';
 import pkg from '../lib/pkg.js';
-import program from 'commander';
+
+const program = new Command();
 
 program
   .version(pkg.version)
-  .usage('[options]')
   .option('-f, --force', 'force overwrite')
-  .option('-l, --log-level [level]', 'defaults to info')
-  .option('-o, --out [path]', 'output file path')
+  .option('-l, --log-level <level>', 'log level', 'info')
+  .option('-o, --out <file>', 'output file path')
   .option('-p, --pretty', 'pretty JSON output')
-  .option('-t, --token [token]', 'personal access token')
-  .parse(process.argv);
+  .option('-t, --token <token>', 'personal access token')
+  .action(async options => {
+    logger.level = options.logLevel;
+    const stringify = arg => JSON.stringify(arg, null, options.pretty ? '  ' : '');
+    const outFile = options.out || `${pkg.name}-${new Date().toISOString().split('T')[0]}.json`;
 
-const options = program.opts();
+    try {
+      const works = await annictBackup(options.token);
+      const backup = stringify(works);
+      await fs.mkdir(path.dirname(outFile), { recursive: true });
+      await fs.writeFile(outFile, backup, { flag: options.force ? 'w' : 'wx' });
+    } catch (err) {
+      logger.error(err);
+      process.exitCode = 1;
+    }
+  });
 
-logger.level = options.logLevel || 'info';
-
-const flag = options.force ? 'w' : 'wx';
-const stringify = arg => JSON.stringify(arg, null, options.pretty ? '  ' : '');
-const outFile = options.out || `${pkg.name}-${formatISO(new Date(), { representation: 'date' })}.json`;
-const outDir = path.dirname(outFile);
-
-try {
-  const works = await annictBackup(options.token);
-  const backup = stringify(works);
-  await fs.mkdir(outDir, { recursive: true });
-  await fs.writeFile(outFile, backup, { flag });
-} catch (err) {
-  logger.error(err);
-  process.exitCode = 1;
-}
+program.parse();

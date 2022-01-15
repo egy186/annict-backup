@@ -10,22 +10,21 @@
     "url": "https://github.com/egy186/annict-backup/issues"
   },
   "dependencies": {
-    "commander": "^7.2.0",
-    "cosmiconfig": "^7.0.0",
-    "date-fns": "^2.22.1",
-    "graphql-request": "^3.4.0",
-    "winston": "^3.3.3"
+    "commander": "^8.3.0",
+    "cosmiconfig": "^7.0.1",
+    "graphql-request": "^3.7.0",
+    "winston": "^3.4.0"
   },
   "devDependencies": {
     "@egy186/eslint-config": "^0.66.0",
     "eslint": "^8.6.0",
     "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-node": "^11.1.0",
-    "husky": "^6.0.0"
+    "eslint-plugin-node": "^11.1.0"
   },
   "engines": {
     "node": ">=16.3.0"
   },
+  "exports": "./lib/index.js",
   "files": [
     "lib",
     "bin"
@@ -36,14 +35,13 @@
     "backup"
   ],
   "license": "MIT",
-  "type": "module",
-  "exports": "./lib/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/egy186/annict-backup.git"
   },
   "scripts": {
-    "husky": "husky install",
-    "lint": "eslint ."
-  }
+    "lint": "eslint .",
+    "prepare": "git config --local core.hooksPath .githooks || echo 'info: not a git repository'"
+  },
+  "type": "module"
 }
