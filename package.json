@@ -17,8 +17,9 @@
     "winston": "^3.3.3"
   },
   "devDependencies": {
-    "@egy186/eslint-config": "^0.61.0",
-    "eslint": "^7.28.0",
+    "@egy186/eslint-config": "^0.66.0",
+    "eslint": "^8.6.0",
+    "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-node": "^11.1.0",
     "husky": "^6.0.0"
   },
@@ -35,7 +36,8 @@
     "backup"
   ],
   "license": "MIT",
-  "main": "lib",
+  "type": "module",
+  "exports": "./lib/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/egy186/annict-backup.git"

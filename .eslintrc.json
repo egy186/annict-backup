@@ -1,9 +1,25 @@
 {
   "extends": [
     "@egy186/eslint-config",
+    "@egy186/eslint-config/modules",
     "@egy186/eslint-config/node"
   ],
   "parserOptions": {
-    "ecmaVersion": 2020
+    "ecmaVersion": 2022
+  },
+  "rules": {
+    "import/extensions": [
+      "error",
+      "always"
+    ],
+    "import/no-nodejs-modules": "off",
+    "node/no-unsupported-features/es-syntax": [
+      "error",
+      {
+        "ignores": [
+          "modules"
+        ]
+      }
+    ]
   }
 }

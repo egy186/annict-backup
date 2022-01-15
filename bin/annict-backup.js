@@ -1,17 +1,15 @@
 #!/usr/bin/env node
 
-'use strict';
-
-const annictBackup = require('../lib');
-const { formatISO } = require('date-fns');
-const { promises: fs } = require('fs');
-const logger = require('../lib/logger');
-const path = require('path');
-const program = require('commander');
-const { name, version } = require('../package.json');
+import { annictBackup } from '../lib/index.js';
+import { formatISO } from 'date-fns';
+import fs from 'node:fs/promises';
+import { logger } from '../lib/logger.js';
+import path from 'node:path';
+import pkg from '../lib/pkg.js';
+import program from 'commander';
 
 program
-  .version(version)
+  .version(pkg.version)
   .usage('[options]')
   .option('-f, --force', 'force overwrite')
   .option('-l, --log-level [level]', 'defaults to info')
@@ -26,17 +24,15 @@ logger.level = options.logLevel || 'info';
 
 const flag = options.force ? 'w' : 'wx';
 const stringify = arg => JSON.stringify(arg, null, options.pretty ? '  ' : '');
-const outFile = options.out || `${name}-${formatISO(new Date(), { representation: 'date' })}.json`;
+const outFile = options.out || `${pkg.name}-${formatISO(new Date(), { representation: 'date' })}.json`;
 const outDir = path.dirname(outFile);
 
-(async () => {
-  try {
-    const works = await annictBackup(options.token);
-    const backup = stringify(works);
-    await fs.mkdir(outDir, { recursive: true });
-    await fs.writeFile(outFile, backup, { flag });
-  } catch (err) {
-    logger.error(err);
-    process.exitCode = 1;
-  }
-})();
+try {
+  const works = await annictBackup(options.token);
+  const backup = stringify(works);
+  await fs.mkdir(outDir, { recursive: true });
+  await fs.writeFile(outFile, backup, { flag });
+} catch (err) {
+  logger.error(err);
+  process.exitCode = 1;
+}
