@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { Command } from 'commander/esm.mjs';
+import { Command } from 'commander';
 import { annictBackup } from '../lib/index.js';
 import fs from 'node:fs/promises';
 import { logger } from '../lib/logger.js';
