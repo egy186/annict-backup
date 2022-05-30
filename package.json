@@ -10,7 +10,7 @@
     "url": "https://github.com/egy186/annict-backup/issues"
   },
   "dependencies": {
-    "commander": "^9.2.0",
+    "commander": "^9.3.0",
     "cosmiconfig": "^7.0.1",
     "graphql-request": "^4.2.0",
     "winston": "^3.7.2"
