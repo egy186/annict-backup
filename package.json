@@ -12,7 +12,7 @@
   "dependencies": {
     "commander": "^9.3.0",
     "cosmiconfig": "^7.0.1",
-    "graphql-request": "^4.2.0",
+    "graphql-request": "^4.3.0",
     "winston": "^3.7.2"
   },
   "devDependencies": {
