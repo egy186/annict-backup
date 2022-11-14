@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "commander": "^9.4.0",
-    "cosmiconfig": "^7.0.1",
+    "cosmiconfig": "^7.1.0",
     "graphql-request": "^5.0.0",
     "winston": "^3.8.0"
   },
