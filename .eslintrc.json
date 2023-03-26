@@ -13,5 +13,10 @@
       "always"
     ],
     "import/no-nodejs-modules": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": true
+    }
   }
 }
