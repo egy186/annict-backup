@@ -12,14 +12,6 @@
       "error",
       "always"
     ],
-    "import/no-nodejs-modules": "off",
-    "node/no-unsupported-features/es-syntax": [
-      "error",
-      {
-        "ignores": [
-          "modules"
-        ]
-      }
-    ]
+    "import/no-nodejs-modules": "off"
   }
 }
