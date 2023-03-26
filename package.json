@@ -19,7 +19,7 @@
     "@egy186/eslint-config": "^0.87.0",
     "eslint": "^8.36.0",
     "eslint-plugin-import": "^2.27.2",
-    "eslint-plugin-node": "^11.1.0"
+    "eslint-plugin-n": "^15.6.1"
   },
   "engines": {
     "node": ">=16.3.0"
