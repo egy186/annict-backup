@@ -13,7 +13,7 @@
     "commander": "^10.0.0",
     "cosmiconfig": "^8.1.0",
     "graphql-request": "^6.0.0",
-    "winston": "^3.8.0"
+    "winston": "^3.8.2"
   },
   "devDependencies": {
     "@egy186/eslint-config": "^0.88.0",
