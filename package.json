@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@egy186/eslint-config": "^0.93.0",
-    "eslint": "^8.45.0",
+    "eslint": "^8.46.0",
     "eslint-import-resolver-typescript": "^3.5.3",
     "eslint-plugin-import": "^2.28.0",
     "eslint-plugin-n": "^16.0.0"
