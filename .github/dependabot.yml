@@ -4,4 +4,11 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    groups:
+      eslint:
+        patterns:
+          - "@egy186/eslint-config"
+          - "eslint"
+          - "eslint-import-resolver-typescript"
+          - "eslint-plugin-*"
     versioning-strategy: increase
