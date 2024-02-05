@@ -17,7 +17,8 @@
   },
   "devDependencies": {
     "@egy186/eslint-config": "^0.106.0",
-    "eslint": "^8.56.0"
+    "eslint": "^8.56.0",
+    "husky": "^9.0.10"
   },
   "engines": {
     "node": ">=16.3.0"
@@ -39,7 +40,7 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "prepare": "git config --local core.hooksPath .githooks || echo 'info: not a git repository'"
+    "prepare": "husky"
   },
   "type": "module"
 }
