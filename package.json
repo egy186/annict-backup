@@ -16,7 +16,7 @@
     "winston": "^3.17.0"
   },
   "devDependencies": {
-    "@egy186/eslint-config": "^2.7.0",
+    "@egy186/eslint-config": "^2.8.0",
     "eslint": "^9.23.0",
     "husky": "^9.1.1"
   },
