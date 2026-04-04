@@ -1,16 +1,25 @@
-name: Node CI
+name: CI
 
-on: [push]
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  lint:
-    name: Lint
+  ci:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
+    - name: Checkout
+      uses: actions/checkout@v6
+
+    - name: Setup node
+      uses: actions/setup-node@v6
       with:
-        node-version: 20
-    - run: npm ci
-    - run: npm run lint
+        node-version: lts/*
+
+    - name: Install
+      run: npm ci
+
+    - name: Lint
+      run: npm run lint
