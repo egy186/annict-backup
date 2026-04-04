@@ -10,15 +10,15 @@
     "url": "https://github.com/egy186/annict-backup/issues"
   },
   "dependencies": {
-    "commander": "^14.0.0",
-    "cosmiconfig": "^9.0.0",
-    "graphql-request": "^7.3.0",
-    "winston": "^3.18.0"
+    "commander": "^14.0.3",
+    "cosmiconfig": "^9.0.1",
+    "graphql-request": "^7.4.0",
+    "winston": "^3.19.0"
   },
   "devDependencies": {
-    "@egy186/eslint-config": "^4.1.0",
-    "eslint": "^9.39.1",
-    "husky": "^9.1.1"
+    "@egy186/eslint-config": "^4.4.3",
+    "eslint": "^9.39.4",
+    "husky": "^9.1.7"
   },
   "engines": {
     "node": ">=20.11.0"
