@@ -1,12 +1,21 @@
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: npm
+    directory: /
     schedule:
-      interval: "daily"
+      interval: daily
     groups:
       eslint:
         patterns:
-          - "@egy186/eslint-config"
-          - "eslint"
-    versioning-strategy: increase
+          - '@egy186/eslint-config'
+          - eslint
+    cooldown:
+      default-days: 3
+      exclude:
+        - '@egy186/*'
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 3
