@@ -1,16 +1,16 @@
 #!/usr/bin/env node
 
+import { name, version } from '../package.json' with { type: 'json' };
 import { Command } from 'commander';
 import { annictBackup } from '../lib/index.js';
 import fs from 'node:fs/promises';
 import { logger } from '../lib/logger.js';
 import path from 'node:path';
-import pkg from '../lib/pkg.js';
 
 const program = new Command();
 
 program
-  .version(pkg.version)
+  .version(version)
   .option('-f, --force', 'force overwrite')
   .option('-l, --log-level <level>', 'log level', 'info')
   .option('-o, --out <file>', 'output file path')
@@ -19,7 +19,7 @@ program
   .action(async options => {
     logger.level = options.logLevel;
     const stringify = arg => JSON.stringify(arg, null, options.pretty ? '  ' : '');
-    const outFile = options.out || `${pkg.name}-${new Date().toISOString().split('T')[0]}.json`;
+    const outFile = options.out || `${name}-${new Date().toISOString().split('T')[0]}.json`;
 
     try {
       const works = await annictBackup(options.token);
